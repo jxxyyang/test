@@ -42,4 +42,24 @@ var rst = arr.reduce(function(previousValue, currentValue, currentIndex, arr) {
 });
 // rst: 10;
 
+_.reduceRight  /  obj.reduceRight
+
+
+_.filter  使用指定的函数测试所有元素， 并创建一个包含所有通过测试的元素的新数组
+function isBigEnough(value) {
+	return value >= 10;
+}
+var array = [1, 11, 23, 5];
+var filtered = _.filter(array, isBigEnough);
+//filtered [11, 23]
+
+//Native
+var filtered2 = array.filter(isBigEnough);
+
+
+
+
+
+
+
 
