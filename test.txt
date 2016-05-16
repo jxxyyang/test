@@ -57,6 +57,114 @@ var filtered = _.filter(array, isBigEnough);
 var filtered2 = array.filter(isBigEnough);
 
 
+_.find  返回数组中满足测试条件的一个元素， 如果没有满足的， 则返回undefined；
+var users = [
+	{"user":"yang", "age":27, "active":true},
+	{"user":"jian", "age":17, "active":true}
+	{"user":"xx", "age":2, "active":true}
+];
+
+_.find(users, function(o), function() {
+	return o.age < 25;
+});
+
+//jian
+
+//native
+user.find(function(o) {
+	return o.age < 25;
+});
+
+
+_.findIndex  用来指定查找数组中某指定元素的索引，如果找不到指定的元素, 则返回 -1
+
+var index = _.findIndex(user, function(o) {
+	return o.age < 25;
+});
+
+var index = user.findIndex(function(o) {
+	return o.age < 25;
+});
+
+//1
+
+
+_.indexOf  返回指定值在字符串对象中首次出现的位置， 如果找不到则返回-1
+var array = [2, 9, 9];
+var result = _.indexOf(array, 2);
+
+//native 
+var result = array.indexOf(2);
+//0
+
+
+_.lastIndexOf  lastIndexOf
+
+
+_.includes  判断元素是否在列表中
+
+var array = [1,2,3]
+_.includes(array, 1);
+/
+array.includes(1)
+
+// -> true
+ 
+_.keys 返回某个对象所有可枚举的键名  // Object.keys(obj)
+var obj = {
+	one: 1,
+	two: 2,
+	three: 3
+}
+var result = _.keys(obj);
+
+var result = Object.keys(obj);
+
+//  result ["one", "two", "three"];
+
+_.size 返回集合大小
+var sz = _.size(obj);
+var sz = Object.keys(obj).length;
+// => 3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+_.trim 消去字符串起始的空白
+var rst = _.trim('    ab c ');
+var rst = '   ab c '.trim();
+// -> ab c
+
+
+//Lodash  -> _.repeat
+var result = _.repeat("abc", 2)
+var result = 'abc'.repeat(2);
+
+// -> 'abcabc'
+
+
+
+
+
+
+
+
+
 
 
 
