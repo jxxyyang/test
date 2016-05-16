@@ -1,0 +1,45 @@
+Lodash和Underscore是非常优秀的javascript的工具集合框架；
+
+_.each  遍历一系列元素，并且调用回调处理方程；
+//Underscore/Lodash
+_.each([1,2,3], function(value, index) {
+	console.log(value);
+});
+
+//Native
+[1,2,3].forEach(function(value, index) {
+   console.log(value);
+});
+// support  ie9+
+
+_.map   将某个列表中的元素映射到新的列表中
+var array1 = [1,2,3];
+var array2 = _.map(array1, function(value, index) {
+	return value*2;
+});
+
+//output  array2 [2, 4, 6]
+
+var array2 = array1.map(function(value, index) {
+	return value * 2;
+});
+
+_.some  /   obj.some
+
+_.every / obj.every
+
+_.reduce //接收一个函数作为累加器， 数组中的每个值（从左到右）开始缩减， 最终为一个值
+var arr  = [1,2,3,4];
+var result = _.reduce(arr, function(previousValue, currentValue, currentIndex, arr) {
+	return previousValue + currentValue;
+});
+
+//result: 10
+
+//Native
+var rst = arr.reduce(function(previousValue, currentValue, currentIndex, arr) {
+	return previousValue + currentValue;
+});
+// rst: 10;
+
+
