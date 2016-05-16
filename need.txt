@@ -1,0 +1,6 @@
+Javascript 语言( 直接看 ES6 相关的 )
+NodeJS 生态( npm 与相关的包 )
+webpack ( 了解如何打包, 发布 )
+HTML ( 尤其是 form 标签, 以及 HTML5 的内容 )
+CSS ( 学习盒模型, 最新的 flex 布局, 以及 CSS3 )
+API ( 掌握如何开发 API )
