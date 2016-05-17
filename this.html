@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>this demo</title>
+	<script src="http://apps.bdimg.com/libs/jquery/1.6.4/jquery.min.js"></script>
+	<script src="js/this.js"></script>
+</head>
+<body>
+	<a href="#" onclick="alert(this.tagName)" >Click Me</a> <!--A-->
+	<a href="javascript:alert(this.tagName);" >Click Me</a> <!--undefined-->
+	<a href="javascript:alert(this === window);" >Click Me</a> <!--true-->
+	<input id="btn" value="this dome" name="button" />
+	
+	<script>
+		// javascript中的this的些许怪异现象
+			var name = 'somebody';
+			var angela = {
+				name :"angela",
+				say: function() {
+					console.log(this.name);
+				}
+			}
+			var btn = document.getElementById("btn");
+			
+			//btn.onclick = angela.say; //button
+			
+			//setTimeout 和 setInterval 也会改变this的指向
+			//angela.say(); //angela
+			//setTimeout(angela.say, 1000); //somebody
+			//setInterval(angela.say, 3000); //somebody
+			
+			//setTimeout等函数内部this默认的指向是window
+			
+			/*$("#btn").click(function() {
+				angela.say();  //angela
+			})*/
+			
+			//匿名函数调整this的指向
+			setTimeout(function(){ angela.say(); }, 1000) //angela
+
+			
+	</script>
+</body>
+</html>
