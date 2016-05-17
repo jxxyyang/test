@@ -1,0 +1,25 @@
+Flux应用主要包括三部分： dispather， store 和 views(React components) 千万不要和MVC（model-View-Controller）搞混；Controller在Flux应用中也确实存在， 但是以controller-view的形式
+
+view通常处于应用的顶层， 它从stores中获取数据， 同时将这些数据传递给他的后代节点；另外，action creators - dispather辅助方法， 一个被用来提供描述应用所有有可能存在的改变的语义化的api， 把它理解为Flux更新闭环的第四组成部分可以帮你更好的理解它；
+
+Flux使用单向的数据流来避开MVC，当用户与React视图交互的时候， 视图会通过中枢dispather产生一个action，然后大量的保存着应用数据和业务逻辑的视图接收冒泡的action；更新所有受影响的view； 这种方式很适合React这种声明式的编程方式， 因为它的store更新， 并不需要特别指定如何在view和state中过渡；
+
+
+Action -> Dispather -> store -> view
+
+单向的数据流是Flux应用的核心特征， 上图应该Flux程序员的主要心智模型，Dispather， stores， views， 是拥有清晰的输入输出的独立节点。 而actions是包含了新的数据和身份属性的简单对象；
+
+
+A Single Dispather
+dispather 就像是一个中央的集线器， 管理所有的数据流， 本质上他就是store callback的注册表，本身并没有实际的高度功能。他就是stores分发actions的机器；每一个store各自的callback以提供对应的处理动作，当dispather发出一个action时，应用中所有store都会注册callback收到这个action
+
+Facebook目前在生产环境中使用的flux可以分别在npm， Bower， or Github中获取
+
+
+stores
+stores包含了应用的状态和逻辑；管理了多个对象，
+
+store在dispather中注册， 并提供相应的回调， 回调会接收action并把他当成自己的一个参数， 当action被触发， 回调函数会使用switch语句来解析action的type参数， 并在适合的type下提供钩子来执行内部方法， 这就允许action通过dispather来响应store中的state更新； store更新完成之后， 会向应用中广播一个change事件， views可以选择响应事件来重新获取新的数据并更新；
+
+
+dispather 可以用来管理store之间的依赖， 可以通过dispather的waitFor()方法来实现。
